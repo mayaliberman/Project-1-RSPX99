@@ -49,6 +49,24 @@ function setPlayerMoves(
   console.log(P2MovesTypes, P2MovesValues, P1MovesTypes, P1MovesValues);
 }
 
+// Bonus: A function called setComputerMoves, which chooses three random moves for player two. 
+// The move type for each 
+// move should be completely random, and the move values should be random but add up to 99.
+function setComputerMoves(){
+    const moves = ['rock', 'paper', 'scissors'];
+  const moveOneType = moves[Math.floor(Math.random() * 3)];
+  const moveTwoType = moves[Math.floor(Math.random() * 3)];
+  const moveThreeType = moves[Math.floor(Math.random() * 3)];
+  const moveOneValue = Math.floor(Math.random() * 96) + 1;
+  const moveTwoValue = Math.floor(Math.random() * (97 - moveOneValue)) + 1;
+  const moveThreeValue = 99 - moveOneValue - moveTwoValue;
+  setPlayerMoves('Player Two', moveOneType, moveOneValue, moveTwoType,
+                 moveTwoValue, moveThreeType, moveThreeValue);
+}
+
+
+
+
 //  A function called `getRoundWinner`, which takes a round number (`1`, `2`, or `3`),
 // compares both player's move types and values for that round, and returns the appropriate winner
 // (`'Player One'`, `'Player Two'`, or `'Tie'`)
